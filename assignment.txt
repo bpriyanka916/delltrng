@@ -1,0 +1,146 @@
+
+
+SQL> create table Employee(EmployeeID number(20),EmployeeName varchar(20),Employeeaddress varchar(20),DOB varchar(20),Doj varchar(20),salary number(20));
+
+Table created.
+
+
+
+SQL> alter table Employee modify DOJ date;
+
+Table altered.
+
+SQL> alter table Employee modify DOb date;
+
+Table altered.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(20)
+ EMPLOYEENAME                                       VARCHAR2(20)
+ EMPLOYEEADDRESS                                    VARCHAR2(20)
+ DOB                                                DATE
+ DOJ                                                DATE
+ SALARY                                             NUMBER(20)
+
+
+SQL>
+SQL> insert into employee values(&a,'&b','&c','&d','&e',&f);
+Enter value for a: 1
+Enter value for b: aaa
+Enter value for c: vizag
+Enter value for d: 22-jan-98
+Enter value for e: 22-jan-15
+Enter value for f: 10000
+old   1: insert into employee values(&a,'&b','&c','&d','&e',&f)
+new   1: insert into employee values(1,'aaa','vizag','22-jan-98','22-jan-15',10000)
+
+1 row created.
+
+SQL> insert into employee values(&a,'&b','&c','&d','&e',&f);
+Enter value for a: 2
+Enter value for b: bbb
+Enter value for c: raipur
+Enter value for d: 23-jan-98
+Enter value for e: 24-jan-15
+Enter value for f: 30000
+old   1: insert into employee values(&a,'&b','&c','&d','&e',&f)
+new   1: insert into employee values(2,'bbb','raipur','23-jan-98','24-jan-15',30000)
+
+1 row created.
+
+SQL> insert into employee values(&a,'&b','&c','&d','&e',&f);
+Enter value for a: 3
+Enter value for b: ccc
+Enter value for c: banglore
+Enter value for d: 24-oct-98
+Enter value for e: 25-jan-15
+Enter value for f: 30000
+old   1: insert into employee values(&a,'&b','&c','&d','&e',&f)
+new   1: insert into employee values(3,'ccc','banglore','24-oct-98','25-jan-15',30000)
+
+1 row created.
+
+SQL> insert into employee values(&a,'&b','&c','&d','&e',&f);
+Enter value for a: 4
+Enter value for b: ddd
+Enter value for c: pune
+Enter value for d: 24-oct-97
+Enter value for e: 25-feb-97
+Enter value for f: 20000
+old   1: insert into employee values(&a,'&b','&c','&d','&e',&f)
+new   1: insert into employee values(4,'ddd','pune','24-oct-97','25-feb-97',20000)
+
+1 row created.
+
+SQL> insert into employee values(&a,'&b','&c','&d','&e',&f);
+Enter value for a: 5
+Enter value for b: eee
+Enter value for c: gajuwaka
+Enter value for d: 1-oct-98
+Enter value for e: 25-oct-91
+Enter value for f: 9000
+old   1: insert into employee values(&a,'&b','&c','&d','&e',&f)
+new   1: insert into employee values(5,'eee','gajuwaka','1-oct-98','25-oct-91',9000)
+
+1 row created.
+
+SQL> select * from employee;
+
+EMPLOYEEID EMPLOYEENAME         EMPLOYEEADDRESS      DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         1 aaa                  vizag                22-JAN-98 22-JAN-15
+     10000
+
+         2 bbb                  raipur               23-JAN-98 24-JAN-15
+     30000
+
+         3 ccc                  banglore             24-OCT-98 25-JAN-15
+     30000
+
+
+EMPLOYEEID EMPLOYEENAME         EMPLOYEEADDRESS      DOB       DOJ
+---------- -------------------- -------------------- --------- ---------
+    SALARY
+----------
+         4 ddd                  pune                 24-OCT-97 25-FEB-97
+     20000
+
+         5 eee                  gajuwaka             01-OCT-98 25-OCT-91
+      9000
+
+
+SQL> select employeename from employee where salary>20000;
+
+EMPLOYEENAME
+--------------------
+bbb
+ccc
+
+SQL> select employeename from employee where employeeaddress like '%a' or employeeaddress like '%r' or employeeaddress like '%p';
+
+EMPLOYEENAME
+--------------------
+bbb
+eee
+
+SQL> update employee  set salary=salary+salary*0.2;
+
+5 rows updated.
+
+SQL> delete from employee where salary<5000;
+
+0 rows deleted.
+
+SQL> alter table employee add email varchar(20);
+
+Table altered.
+
+SQL> update employee set email='del@gmail.com';
+
+5 rows updated.
+
+SQL>
